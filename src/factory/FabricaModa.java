@@ -1,4 +1,13 @@
 package factory;
 
-public class FabricaModa {
+import model.*;
+
+public class FabricaModa implements Fabrica {
+    public Revista crearRevista() {
+        return new RevistaModa();
+    }
+
+    public Libro crearLibro() {
+        return new LibroModa();
+    }
 }
