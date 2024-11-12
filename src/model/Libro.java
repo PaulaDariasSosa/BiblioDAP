@@ -3,7 +3,7 @@ package model;
 public class Libro implements Publicacion{
     protected String titulo_;
     protected String autor_;
-    protected int isbn_;
+    protected long isbn_;
     protected String fecha_;
 
     public Libro(){
@@ -13,7 +13,7 @@ public class Libro implements Publicacion{
         fecha_ = "";
     }
 
-    public Libro(String titulo, String autor, int isbn, String fecha) {
+    public Libro(String titulo, String autor, long isbn, String fecha) {
         this.titulo_ = titulo;
         this.autor_ = autor;
         this.isbn_ = isbn;
@@ -28,7 +28,7 @@ public class Libro implements Publicacion{
         return autor_;
     }
 
-    public int getIsbn() {
+    public long getIsbn() {
         return isbn_;
     }
 
@@ -44,7 +44,7 @@ public class Libro implements Publicacion{
         this.autor_ = autor;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(long isbn) {
         this.isbn_ = isbn;
     }
 
