@@ -6,7 +6,7 @@ public class LibroCiencia extends Libro {
         super();
     }
 
-    public LibroCiencia(String titulo, String autor, int isbn, String fecha) {
+    public LibroCiencia(String titulo, String autor, long isbn, String fecha) {
         super(titulo, autor, isbn, fecha);
     }
 
