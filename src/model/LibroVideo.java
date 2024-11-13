@@ -3,12 +3,12 @@ package model;
 import service.*;
 import java.util.Scanner;
 
-public class LibroViajes extends Libro {
+public class LibroVideo extends Libro {
     private long isbn_;
 
-    public LibroViajes() {
+    public LibroVideo() {
         super();
-        ConexionAPILibros conexion = new ConexionAPILibros("https://openlibrary.org/search.json?page=1&sorts=already_read_count%20desc&fields=title,publish_date,isbn,author_name&subject=travel");
+        ConexionAPILibros conexion = new ConexionAPILibros("https://openlibrary.org/search.json?page=1&sorts=already_read_count%20desc&fields=title,publish_date,isbn,author_name&subject=video&limit=10");
         Dataset informacion = conexion.getInformacion();
 
         mostrarLibros(informacion);
@@ -18,12 +18,12 @@ public class LibroViajes extends Libro {
     }
 
     private void mostrarLibros(Dataset informacion) {
-        System.out.println("Libros de Viajes:");
+        System.out.println("Libros de Video:");
         informacion.show();
     }
 
     private int obtenerOpcion(Dataset informacion) {
-        System.out.println("Elija un libro de Viaje(introduzca un numero de 1 a " + informacion.getDatos().size() + "):");
+        System.out.println("Elija un libro de Video (introduzca un numero de 1 a " + informacion.getDatos().size() + "):");
         Scanner scanner = new Scanner(System.in);
         int opcion = scanner.nextInt();
         scanner.nextLine();

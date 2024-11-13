@@ -3,16 +3,16 @@ package model;
 import service.*;
 import java.util.Scanner;
 
-public class RevistaViajes {
+public class RevistaVideo extends Revista {
     private String abstract_;
     private String web_url_;
     private String lead_paragraph_;
     private String source_;
     private int word_count_;
 
-    public RevistaViajes() {
+    public RevistaVideo() {
         super();
-        ConexionAPIRevistas conexion = new ConexionAPIRevistas("https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:(\"Travel\")&sort=newest&api-key=BsEGWJx6KO6rf0Y9OJJh692KPvCUUAUC&fl=abstract,lead_paragraph,source,web_url,word_count");
+        ConexionAPIRevistas conexion = new ConexionAPIRevistas("https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:%22video%22&sort=newest&api-key=BsEGWJx6KO6rf0Y9OJJh692KPvCUUAUC&fl=abstract,lead_paragraph,source,web_url,word_count");
         Dataset informacion = conexion.getInformacion();
 
         mostrarRevistas(informacion);
@@ -22,12 +22,12 @@ public class RevistaViajes {
     }
 
     private void mostrarRevistas(Dataset informacion) {
-        System.out.println("Revistas de viajes:");
+        System.out.println("Revistas de Video:");
         informacion.show();
     }
 
     private int obtenerOpcion(Dataset informacion) {
-        System.out.println("Elija una revista de viaje(introduzca un numero de 1 a " + informacion.getDatos().size() + "):");
+        System.out.println("Elija una revista de Video (introduzca un numero de 1 a " + informacion.getDatos().size() + "):");
         Scanner scanner = new Scanner(System.in);
         int opcion = scanner.nextInt();
         scanner.nextLine();

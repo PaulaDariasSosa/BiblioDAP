@@ -1,6 +1,7 @@
 package client;
 
 import factory.Fabrica;
+import factory.FactoryVideo;
 import model.*;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class Biblioteca {
         Scanner scanner = new Scanner(System.in);
         int opcion = scanner.nextInt();
         if (opcion == 1) {
-            // factory_ = new Fabrica();
+            factory_ = new FactoryVideo();
         } else if (opcion == 2) {
             // factory_ = new Fabrica();
         } else if (opcion == 3) {
