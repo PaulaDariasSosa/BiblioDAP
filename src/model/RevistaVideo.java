@@ -3,11 +3,8 @@ package model;
 import service.*;
 import java.util.Scanner;
 
-<<<<<<< HEAD:src/model/RevistaVideo.java
 public class RevistaVideo extends Revista {
-=======
-public class RevistaViajes extends Revista {
->>>>>>> e9a07bbeb1e37f66b623d34359a9413f81e31bc1:src/model/RevistaViajes.java
+
     private String abstract_;
     private String web_url_;
     private String lead_paragraph_;
@@ -16,11 +13,8 @@ public class RevistaViajes extends Revista {
 
     public RevistaVideo() {
         super();
-<<<<<<< HEAD:src/model/RevistaVideo.java
-        ConexionAPIRevistas conexion = new ConexionAPIRevistas("https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:%22video%22&sort=newest&api-key=BsEGWJx6KO6rf0Y9OJJh692KPvCUUAUC&fl=abstract,lead_paragraph,source,web_url,word_count");
-=======
-        ConexionAPIRevistas conexion = new ConexionAPIRevistas("https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:(\"travel\")&sort=newest&api-key=BsEGWJx6KO6rf0Y9OJJh692KPvCUUAUC&fl=abstract,lead_paragraph,source,web_url,word_count");
->>>>>>> e9a07bbeb1e37f66b623d34359a9413f81e31bc1:src/model/RevistaViajes.java
+
+        ConexionAPIRevistas conexion = new ConexionAPIRevistas("https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:(\"video\")&sort=newest&api-key=BsEGWJx6KO6rf0Y9OJJh692KPvCUUAUC&fl=abstract,lead_paragraph,source,web_url,word_count");
         Dataset informacion = conexion.getInformacion();
 
         mostrarRevistas(informacion);

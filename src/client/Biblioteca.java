@@ -3,7 +3,7 @@ package client;
 import factory.Fabrica;
 import factory.FabricaCiencia;
 import factory.FabricaModa;
-import factory.FactoryViajes;
+import factory.FactoryVideo;
 import model.Publicacion;
 
 import javax.swing.*;
@@ -38,7 +38,7 @@ public class Biblioteca extends JFrame {
         fabricaPanel.setLayout(new FlowLayout());
         fabricaPanel.add(new JLabel("Selecciona una fábrica:"));
 
-        String[] opcionesFabrica = {"Moda", "Ciencia", "Viajes"};
+        String[] opcionesFabrica = {"Moda", "Ciencia", "Video"};
         fabricaComboBox = new JComboBox<>(opcionesFabrica);
         fabricaPanel.add(fabricaComboBox);
 
@@ -88,7 +88,7 @@ public class Biblioteca extends JFrame {
                     factory = new FabricaCiencia();
                     break;
                 case 2:
-                    factory = new FactoryViajes();
+                    factory = new FactoryVideo();
                     break;
             }
             JOptionPane.showMessageDialog(null, "Fábrica cambiada a: " + fabricaComboBox.getSelectedItem());
