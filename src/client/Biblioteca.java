@@ -1,10 +1,15 @@
 package client;
 
 import factory.Fabrica;
+<<<<<<< HEAD
+import factory.FactoryVideo;
+import model.*;
+=======
 import factory.FabricaCiencia;
 import factory.FabricaModa;
 import factory.FactoryViajes;
 import model.Publicacion;
+>>>>>>> e9a07bbeb1e37f66b623d34359a9413f81e31bc1
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,6 +78,21 @@ public class Biblioteca extends JFrame {
         add(mostrarPublicacionesBtn, BorderLayout.WEST);
     }
 
+<<<<<<< HEAD
+    public void cambiarFabrica() {
+        System.out.println("¿Que fabrica desea usar?");
+        System.out.println("1. Fabrica de x");
+        System.out.println("2. Fabrica de y");
+        System.out.println("2. Fabrica de z");
+        Scanner scanner = new Scanner(System.in);
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            factory_ = new FactoryVideo();
+        } else if (opcion == 2) {
+            // factory_ = new Fabrica();
+        } else if (opcion == 3) {
+            // factory_ = new Fabrica();
+=======
     /**
      * Listener para cambiar la fábrica de publicaciones
      */
@@ -92,6 +112,7 @@ public class Biblioteca extends JFrame {
                     break;
             }
             JOptionPane.showMessageDialog(null, "Fábrica cambiada a: " + fabricaComboBox.getSelectedItem());
+>>>>>>> e9a07bbeb1e37f66b623d34359a9413f81e31bc1
         }
     }
 
@@ -140,6 +161,9 @@ public class Biblioteca extends JFrame {
         }
     }
 
+<<<<<<< HEAD
+}
+=======
     /**
      * Listener para mostrar las publicaciones en el área de texto
      */
@@ -157,3 +181,4 @@ public class Biblioteca extends JFrame {
         }
     }
 }
+>>>>>>> e9a07bbeb1e37f66b623d34359a9413f81e31bc1
