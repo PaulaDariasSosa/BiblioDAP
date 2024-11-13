@@ -45,6 +45,6 @@ public class RevistaVideo extends Revista {
     }
 
     public String toString() {
-        return "Abstract: " + abstract_ + "\n" + "Web URL: " + web_url_ + "\n" + "Lead Paragraph: " + lead_paragraph_ + "\n" + "Source: " + source_ + "\n" + "Word Count: " + word_count_ + "\n" + "Es una revista de Viajes";
+        return "Abstract: " + abstract_ + "\n" + "Web URL: " + web_url_ + "\n" + "Lead Paragraph: " + lead_paragraph_ + "\n" + "Source: " + source_ + "\n" + "Word Count: " + word_count_ + "\n" + "Es una revista de Video";
     }
 }
