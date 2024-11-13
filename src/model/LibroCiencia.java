@@ -18,5 +18,9 @@ public class LibroCiencia extends Libro {
         System.out.println("Es un libro de Ciencia");
     }
 
+    public String toString() {
+        return "Titulo: " + titulo_ + "\n" + "Autor: " + autor_ + "\n" + "ISBN: " + isbn_ + "\n" + "Fecha: " + fecha_ + "\n" + "Es un libro de Ciencia";
+    }
+
 
 }

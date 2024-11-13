@@ -36,4 +36,8 @@ public class LibroViajes extends Libro {
         isbn_ = Long.parseLong(informacion.getDatos().get(opcion - 1).get(1));
         fecha_ = informacion.getDatos().get(opcion - 1).get(2);
     }
+
+    public String toString() {
+        return "Titulo: " + titulo_ + "\n" + "Autor: " + autor_ + "\n" + "ISBN: " + isbn_ + "\n" + "Fecha: " + fecha_ + "\n" + "Es un libro de Viajes";
+    }
 }

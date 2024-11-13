@@ -4,7 +4,10 @@ public class ConexionAPILibros {
     // Atributos
     Dataset informacion_;
 
-    // Constructor
+    /**
+     * Constructor de la clase
+     * @param url
+     */
     public ConexionAPILibros(String url) {
         System.out.println("Downloading from: " + url);
 
@@ -14,7 +17,10 @@ public class ConexionAPILibros {
         informacion_ = conversor_.parserLibro();
     }
 
-    // Métodos
+    /**
+     * Devuelve la información
+     * @return
+     */
     public Dataset getInformacion() {
         return informacion_;
     }
