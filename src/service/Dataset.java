@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Dataset {
@@ -121,10 +123,10 @@ public class Dataset {
     }
 
     public void show() {
-        // Crear el JFrame para mostrar la ventana
-        JFrame frame = new JFrame("Datos del Dataset");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        // Crear el JDialog en lugar de JFrame para que sea modal
+        JDialog dialog = new JDialog((Frame) null, "Datos del Dataset", true); // 'true' indica que es modal
+        dialog.setSize(600, 400);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
         // Crear un modelo de tabla con los nombres de los atributos como columnas
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -144,11 +146,26 @@ public class Dataset {
 
         // Hacer que la tabla sea desplazable en caso de que haya muchos datos
         JScrollPane scrollPane = new JScrollPane(table);
-        frame.add(scrollPane, BorderLayout.CENTER);
+        dialog.add(scrollPane, BorderLayout.CENTER);
 
-        // Hacer visible el frame
-        frame.setVisible(true);
+        // Crear un panel para contener el botón
+        JPanel buttonPanel = new JPanel();
+        JButton closeButton = new JButton("Cerrar");
 
+        // Añadir un ActionListener al botón para cerrar el JDialog
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose(); // Cierra el diálogo
+            }
+        });
+
+        // Añadir el botón al panel y luego el panel al diálogo
+        buttonPanel.add(closeButton);
+        dialog.add(buttonPanel, BorderLayout.SOUTH);
+
+        // Hacer visible el diálogo
+        dialog.setVisible(true);
     }
 
 }
