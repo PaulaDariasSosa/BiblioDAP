@@ -1,0 +1,201 @@
+@startuml
+class model.RevistaCiencia {
++ void mostrar()
++ String toString()
+}
+
+class model.Revista {
+# String abstract_
+# String web_url_
+# String lead_paragraph_
+# String source_
+# int word_count_
++ String getAbstract_()
++ String getWeb_url_()
++ String getLead_paragraph_()
++ String getSource_()
++ int getWord_count_()
++ void mostrar()
++ String toString()
+}
+
+
+interface factory.Fabrica {
++ Revista crearRevista()
++ Libro crearLibro()
+}
+
+interface service.Convertible {
++ Dataset parser()
+}
+
+class service.ConexionAPIRevistas {
+~ Dataset informacion_
++ Dataset getInformacion()
+}
+
+
+class factory.FactoryVideo {
++ Libro crearLibro()
++ Revista crearRevista()
+}
+
+class service.HTTPFileDownloader {
+- {static} int BUFFER_SIZE
++ {static} String downloadFromURL(String)
+}
+
+
+class service.ConexionAPILibros {
+~ Dataset informacion_
++ Dataset getInformacion()
+}
+
+
+abstract class service.Documento {
+# ArrayList<String> registros_
++ {abstract}Dataset parser()
++ ArrayList<String> getRegistros()
+}
+
+
+class client.Biblioteca {
+- Fabrica factory
+- ArrayList<Publicacion> publicaciones
+- JTextArea publicacionesArea
+- JComboBox<String> fabricaComboBox
+- JButton buscarLibroBtn
+- JButton buscarRevistaBtn
+- JButton mostrarPublicacionesBtn
+- Publicacion publicacionSeleccionada
+}
+
+class client.Biblioteca$CambiarFabricaListener {
++ void actionPerformed(ActionEvent)
+}
+
+class client.Biblioteca$BuscarPublicacionListener {
+- String tipoPublicacion
++ void actionPerformed(ActionEvent)
+}
+
+
+class client.Biblioteca$MostrarPublicacionesListener {
++ void actionPerformed(ActionEvent)
+}
+
+class service.Dataset {
+- ArrayList<String> nombreAtributos_
+- ArrayList<ArrayList<String>> datos_
++ void addNombreAtributo(String)
++ void setNombreAtributos(ArrayList<String>)
++ void addFilaDatos(ArrayList<String>)
++ ArrayList<String> getNombreAtributos()
++ ArrayList<ArrayList<String>> getDatos()
++ Dataset filtrarDatos(String,String)
++ boolean esAtributoNumerico(int)
++ void imprimir()
++ void show()
+}
+
+
+class factory.FabricaCiencia {
++ Revista crearRevista()
++ Libro crearLibro()
+}
+
+class model.Libro {
+# String titulo_
+# String autor_
+# long isbn_
+# String fecha_
++ String getTitulo()
++ String getAutor()
++ long getIsbn()
++ String getFecha()
++ void setTitulo(String)
++ void setAutor(String)
++ void setIsbn(long)
++ void setFecha(String)
++ String toString()
++ void mostrar()
+}
+
+
+class service.JSON {
++ Dataset parser()
++ Dataset parserLibro()
+}
+
+class model.LibroVideo {
+- long isbn_
+- void mostrarLibros(Dataset)
+- int obtenerOpcion(Dataset)
+- void asignarDatos(Dataset,int)
++ String toString()
+}
+
+
+class model.RevistaModa {
++ String toString()
+}
+
+class Main {
++ {static} void main(String[])
+}
+
+class factory.FabricaModa {
++ Revista crearRevista()
++ Libro crearLibro()
+}
+
+class model.LibroModa {
++ String toString()
+}
+
+class model.LibroCiencia {
++ void mostrar()
++ String toString()
+}
+
+class model.RevistaVideo {
+- String abstract_
+- String web_url_
+- String lead_paragraph_
+- String source_
+- int word_count_
+- void mostrarRevistas(Dataset)
+- int obtenerOpcion(Dataset)
+- void asignarDatos(Dataset,int)
++ String toString()
+}
+
+
+interface model.Publicacion {
++ void mostrar()
++ String toString()
+}
+
+
+
+model.Revista <|-- model.RevistaCiencia
+model.Publicacion <|.. model.Revista
+factory.Fabrica <|.. factory.FactoryVideo
+service.Convertible <|.. service.Documento
+client.JFrame <|-- client.Biblioteca
+client.Biblioteca +.. client.Biblioteca$CambiarFabricaListener
+client.ActionListener <|.. client.Biblioteca$CambiarFabricaListener
+client.Biblioteca +.. client.Biblioteca$BuscarPublicacionListener
+client.ActionListener <|.. client.Biblioteca$BuscarPublicacionListener
+client.Biblioteca +.. client.Biblioteca$MostrarPublicacionesListener
+client.ActionListener <|.. client.Biblioteca$MostrarPublicacionesListener
+factory.Fabrica <|.. factory.FabricaCiencia
+model.Publicacion <|.. model.Libro
+service.Documento <|-- service.JSON
+model.Libro <|-- model.LibroVideo
+model.Revista <|-- model.RevistaModa
+factory.Fabrica <|.. factory.FabricaModa
+model.Libro <|-- model.LibroModa
+model.Libro <|-- model.LibroCiencia
+model.Revista <|-- model.RevistaVideo
+@enduml
